@@ -5,6 +5,12 @@ import java.util.Random;
  * Course: CIS171 Java
  * File: PacePulseEngine.java
  * Description: Core calculation and business logic engine for PacePulse.
+ *
+ * INCREMENTAL DESIGN APPROACH:
+ * I built and tested the core arithmetic methods (time conversions, pace calculation,
+ * and age-based heart rate formulas) independently first. Once these static utility
+ * methods were verified for accuracy, I integrated them into the PacePulseDriver loop
+ * and unit test suite.
  */
 public class PacePulseEngine {
 
@@ -42,5 +48,29 @@ public class PacePulseEngine {
     public static int generateSessionCode() {
         Random rand = new Random();
         return 100000 + rand.nextInt(900000);
+    }
+
+    /*
+     * QUESTION / STRUGGLE:
+     * How should I best format split time durations when total workout time exceeds an hour?
+     * Currently, formatPaceString handles per-mile minutes and seconds well, but I want to
+     * ensure long endurance run totals display cleanly without redundant zeroes or string
+     * parsing errors in the driver UI.
+     */
+
+    /**
+     * METHOD STUB:
+     * Calculates estimated calories burned during a run session based on runner weight,
+     * distance, and duration.
+     * Planned for complete implementation in the final midterm submission iteration.
+     *
+     * @param weightLbs Runner weight in pounds
+     * @param distanceMiles Total distance completed in miles
+     * @param totalSeconds Total run duration in seconds
+     * @return Estimated calories burned
+     */
+    public static double calculateCaloriesBurned(double weightLbs, double distanceMiles, int totalSeconds) {
+        // TODO: Implement calorie burn formula in next iteration
+        return 0.0; // Temporary stub return
     }
 }
